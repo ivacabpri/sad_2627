@@ -1,18 +1,23 @@
+
+
+
+
+
+
 | N º Vulnerabilidades | Severidad / CVSS |
 |---|---|
-| 8 | Critica |
-| 8 | Alta |
-| 8 | Media |
-| 8 | Baja |
-| 8 | Informativa |
+| 10 | Critica |
+| 6 | Alta |
+| 24 | Media |
+| 9 | Baja |
+| 140 | Informativa |
 
 
 | Vulnerabilidad | Severidad / CVSS | Origen) | Descripción |
 |---|---|---|---|
-|---|---|---|---|
-|---|---|---|---|
-|---|---|---|---|
-
+| a | a | a | a |
+| a | a | a | a |
+| a | a | a | a |
 
 Qué es: una versión concreta de un programa de transferencia de archivos (FTP) que, tal como se distribuyó, llevaba código añadido a propósito para abrir una puerta trasera.
 Cómo se explota: basta con conectarse al servicio y enviar una secuencia concreta de caracteres para activarla, obteniendo acceso total a la máquina sin necesitar usuario ni contraseña.
