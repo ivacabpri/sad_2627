@@ -1,9 +1,3 @@
-
-
-
-
-
-
 | N º Vulnerabilidades | Severidad / CVSS |
 |---|---|
 | 10 | Critica |
@@ -15,35 +9,19 @@
 
 | Vulnerabilidad | Severidad / CVSS | Origen) | Descripción |
 |---|---|---|---|
-| a | a | a | a |
-| a | a | a | a |
-| a | a | a | a |
-
-Qué es: una versión concreta de un programa de transferencia de archivos (FTP) que, tal como se distribuyó, llevaba código añadido a propósito para abrir una puerta trasera.
-Cómo se explota: basta con conectarse al servicio y enviar una secuencia concreta de caracteres para activarla, obteniendo acceso total a la máquina sin necesitar usuario ni contraseña.
-Cómo se mitiga: actualizar a una versión del software sin ese código malicioso, y no instalar nunca binarios de fuentes no oficiales.
-Referencia: CVE-2011-2523.
+| VNC  server password | 10 | Uso | El servicio VNC se ha dejado configurado por defecto una clave muy débil permietiendo un acceso no autenbtificado |
+| SSL V2 and 3 Protocol Detection | 9,8 | Diseño | Hay que remplazar los protocolos de seguridad porque SSL 2 y 3 tienen fallos de diseño |
+| Rlogin Service Detection | 7,5 | Diseño | Este servicio transmite información sin cifrar en texto plano |
 
 
-# Informe de auditoría de vulnerabilidades 
+# Profundizar en una vulnerabilidad crítica 
 
-## 1. Contexto y alcance
-(Qué se ha analizado y por qué)
+## 1. Que es:
 
-## 2. Metodología
-(Herramienta usada, tipo de escaneo, objetivo analizado)
+## 2. Cómo se podría explotar: 
 
-## 3. Resumen de resultados
-(Cuántas vulnerabilidades por severidad — puedes usar una tabla o una lista)
+## 3. Cómo se mitiga
 
-## 4. Vulnerabilidades clasificadas
-(La tabla del paso 7)
+## 4. Referencia:
 
-## 5. Análisis en profundidad
-(El desarrollo del paso 8: qué es, cómo se explota, cómo se mitiga, referencia)
 
-## 6. Recomendaciones
-(2-3 acciones concretas que recomendarías, ordenadas por prioridad)
-
-## 7. Conclusión
-(Una valoración breve: ¿firmarías el contrato de mantenimiento sabiendo lo que sabes ahora? ¿Con qué condiciones?)
