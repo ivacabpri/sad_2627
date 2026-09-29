@@ -45,15 +45,15 @@ https://www.cloudflare.com/es-es/learning/dns/dns-cache-poisoning/
 
 ## 3. IP spoofing
 
-### Qué es: un atacante modifica la dirección IP de origen presente en la cabecera de los paquetes I
+### Qué es: un atacante falsifica y modifica la dirección IP de origen presente en la cabecera de los paquetes I
 
-### Cómo se lleva a cabo: el atacante intercepta o genera paquetes de red y sobrescribe el campo "Source IP Address" del paquete IP con una IP falsa o perteneciente a un equipo legítimo
+### Cómo se lleva a cabo: localiza la cabecera, el atacante intercepta o genera paquetes de red y sobrescribe el campo de la cabecera del paquete IP con una IP falsa o perteneciente a un equipo legítimo
 
-### Qué categoría(s) de amenaza compromete: integridad, autenticidad
+### Qué categoría(s) de amenaza compromete: principalmente la autenticidad, la integridad, y confindencialidad
 
-### Ejemplo o caso real:
+### Ejemplo o caso real: 1994 en mic mic para acceder ilegalmente al ordenador del experto en seguridad de la empresa, al provenir de una ip confiable consiguieron extraer datos
 
-### Medida de prevención: filtrado de paquetes
+### Medida de prevención: filtrado de paquetes, filtrado de contraseñas, analizando aspectos como el origen, cifrado asimétrico, supervision de redes y firewall, formación en materia de seguridad
 
 ### Fuente: puesta en común
 
@@ -61,13 +61,13 @@ https://www.cloudflare.com/es-es/learning/dns/dns-cache-poisoning/
 
 ## 4. Captura de cuentas de usuario y contraseñas
 
-### Qué es: obtención de usuarios y contraseñas o autorizados
+### Qué es: obtención de usuarios y contraseñas o autorizados mediante fallos de seguridad o phising
 
-### Cómo se lleva a cabo:
+### Cómo se lleva a cabo: Se ejecuta mediante el uso de herramientas de capturara de cuentas y contraseñas
 
 ### Qué categoría(s) de amenaza compromete: integridad, autenticidad, confidencialidad
 
-### Ejemplo o caso real:
+### Ejemplo o caso real:Hace un año Netflix Appel PayPal afectadas
 
 ### Medida de prevención: implementación de MFA / 2FA, cifrado mediante HTTPS/TLS
 
