@@ -9,10 +9,16 @@ putty >> vt100 192.168.56.2 >> conectar meta
 # sudo netstat -tulpn >> para ver quien es el dueño   0.0.0.0:nºproceso PID/Dueño
 <img width="858" height="943" alt="image" src="https://github.com/user-attachments/assets/eb338901-aaa3-4bba-807a-41106731fe72" />
 
-# ls -l /etc/xinetd grep
+# vamos a cerrar el puerto 21 el dueño es xinetd: ls -l /etc/xinetd grep >> para averiguar que archivo lo ejecuta
+<img width="390" height="61" alt="image" src="https://github.com/user-attachments/assets/a9c04641-7f55-4b65-8455-e53a8b30cc5d" />
 
+# editamos el archivo >> disable = yes
 
+<img width="596" height="304" alt="image" src="https://github.com/user-attachments/assets/e1b8232f-1d6b-4fb6-a97a-aca490e149c8" />
 
+# Reiniciamos <img width="490" height="48" alt="image" src="https://github.com/user-attachments/assets/6c442e2a-7638-4e82-b4c4-fc40db0eb84a" />
+
+#
 
 grep 513 /etc/services
 login 513/tcp
