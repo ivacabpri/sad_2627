@@ -20,17 +20,7 @@ putty >> vt100 192.168.56.2 >> conectar meta
 
 #
 
-grep 513 /etc/services
-login 513/tcp
-cat /etc/inted.conf
-#login
 
-sudo /etc/init.d/xinetd reload
-sudo netstat -tulpn | grep 513
-
-
-
-g454553yy53y5y3y
 
 
 
