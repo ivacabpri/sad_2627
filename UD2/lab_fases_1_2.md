@@ -40,7 +40,7 @@ putty >> vt100 192.168.56.2 >> conectar meta
 # paramos 
 <img width="722" height="52" alt="image" src="https://github.com/user-attachments/assets/b358aaea-bada-4fae-bee6-ec0530814255" />
 
-#borramos y comprobamos que no aparece
+# borramos y comprobamos que no aparece
 <img width="587" height="162" alt="image" src="https://github.com/user-attachments/assets/d6126d4d-157e-46af-ab4c-0ed8bc0dc6a2" />
 
 # vamos a cerrar el puerto 3306 buscamos el dueño
