@@ -74,3 +74,5 @@ Parte B Clasificar las amenazas
 | 13 | Un programa que registra sin permiso los hábitos de navegación y los vende | Spyware | No | Si |
 
 Pregunta A: ¿Cuáles de estos incidentes no son "malware" propiamente dicho, sino fraude o ingeniería social? ¿Por qué un antivirus no los detendría?
+El 10 (Phishing), el 11 (Bulo) y el 12 (Pharming).
+No consisten en ejecutar un programa si no en engañar a la persona.
