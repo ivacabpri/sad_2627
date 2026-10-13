@@ -32,7 +32,7 @@ Leapfrog: Técnica utilizada para saltar de un sistema comprometido a otro dentr
 
 Parásito Informático: Programa malicioso que se adhiere a otros archivos o al sistema operativo para consumir recursos o alterar el funcionamiento.
 
-Pharming: Técnica que redirige el tráfico de un sitio web legítimo a uno falso mediante la manipulación del servidor DNS o del archivo hosts.
+Pharming: Técnica que redirige el tráfico de un sitio web legítimo a uno falso.
 
 Phishing: Correos maliciosos para engañar a las víctimas y conseguir que entreguen datos confidenciales.
 
@@ -50,7 +50,7 @@ Spyware: Software espía que recopila información de un usuario o equipo sin su
 
 Pop-Ups / Ventanas emergentes: Ventanas publicitarias que aparecen de forma repentina.
 
-Worms / Gusanos: Malware con capacidad de autorreplicarse y propagarse de forma autónoma a través de las redes sin necesidad de interactuar con un archivo huésped.
+Worms / Gusanos: Malware con capacidad de autorreplicarse y propagarse de forma autónoma a través de las redes.
 
 
 
