@@ -1,3 +1,5 @@
+## Paso 1
+
 | Dato encontrado | Fuente (1-6) | ¿Para qué le sirve al atacante? | Contramedida propuesta |
 | :--- | :---: | :--- | :--- |
 | **Estructura y versiones de software** | Fuente 1 | Muestra la tecnología exacta utilizada en la web, facilitando la búsqueda de fallos conocidos. | Ocultar o eliminar la versión del software en la web pública. |
@@ -10,3 +12,18 @@
 | **Nota adhesiva en el monitor en la foto publicada** | Fuente 5 | Expone claves o datos de acceso a simple vista a través de redes sociales. | Prohibir anotar contraseñas en papel y usar un gestor de contraseñas. |
 | **Uso de Wi-Fi pública sin protección en cafetería** | Fuente 5 | Permite a un atacante en la misma red interceptar la navegación y robar contraseñas. | Obligar al uso de VPN cifrada o datos móviles al trabajar fuera. |
 | **Ausencia de Marta del 1 al 15 de agosto y delegación de pagos a Lucía** | Fuente 6 | Facilita el "Fraude del CEO" para engañar a Lucía pidiéndole un pago o cambio bancario urgente. | Confirmar siempre los cambios de cuenta o pagos por llamada telefónica antes de ejecutarlos. |
+
+## Paso 2
+
+Aprovechando la ausencia de Marta en agosto, enviaría un correo suplantando su identidad para pedir un pago urgente a Lucía Peris. Explotaría las vulnerabilidades de Ubuntu 8.04 y Windows 7 para acceder a la red interna. Si fallara, interceptaría el tráfico de Marta en la Wi-Fi pública o usaría las claves expuestas en la nota adhesiva para tomar control del sistema y del NAS de copias de seguridad.
+
+## Paso 3
+
+Migración y actualización de sistemas operativos (Ubuntu 8.04 y Windows 7): Es la vulnerabilidad técnica más crítica. Mantener sistemas obsoletos y sin parches de seguridad expone a toda la empresa a ataques automáticos y a la toma de control remota. Si la infraestructura base cae, el resto de defensas pierde su efectividad.   
+
+Corrección de la política del registro SPF (a -all) y protocolos de correo: El SPF permisivo actual facilita directamente la suplantación de identidad por correo electrónico sin levantar sospechas. Corregirlo bloquea la principal vía de entrada para ataques de phishing y el fraude de suplantación.   
+
+Establecimiento de un procedimiento de verificación por doble canal: Aunque el atacante consiga suplantar o hacerse con el acceso, una verificación telefónica detendría el acceso.
+
+¿Por qué estas y no otras?
+Las otras medidas corresponden a la fase de reconocimiento, mientras que estas priorizan la explotación directa.
