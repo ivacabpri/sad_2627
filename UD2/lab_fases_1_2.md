@@ -1,57 +1,93 @@
-# Laboratorio fases 1 y 2 — Estudio Torrent
+# Laboratorio fases 1 y 2 — Estudio Torrent | putty >> vt100 192.168.56.2 >> conectar meta
 
-putty >> vt100 192.168.56.2 >> conectar meta
 
-#sudo nmap -sV 192.168.10.11 -oN antes.txt  >> ver los puertos que escuchan desde otra maquina, mantener puertos 22 y 80
+# sudo nmap -sV 192.168.10.11 -oN antes.txt
+
+sudo: Ejecuta el escaneo con privilegios de superusuario.
+
+-sV: Escanea los puertos abiertos para determinar qué servicio y versión exacta se está ejecutando en cada uno.
+
+192.168.10.11: Dirección IP del equipo objetivo.
+
+-oN antes.txt: Guarda la salida en formato de texto plano en el archivo antes.txt.
+
 <img width="755" height="484" alt="image" src="https://github.com/user-attachments/assets/1e658cdd-c377-49d6-b1b3-8d1ff3fc2c65" />
 
-# sudo netstat -tulpn >> para ver quien es el dueño   0.0.0.0:nºproceso PID/Dueño
+# sudo netstat -tulpn
+
+-t: Muestra conexiones TCP.
+
+-u: Muestra conexiones UDP.
+
+-l: Filtra solo los sockets que están en estado LISTEN (escuchando conexiones entrantes).
+
+-p: Muestra el PID (Identificador de Proceso) y el nombre del programa/dueño.
+
+-n: Muestra direcciones y números de puertos en formato numérico (evita la resolución DNS y muestra puertos como 21 en vez de ftp).
+
+Para ver quien es el puerto nos fijamos despues de: 0.0.0.0:nºproceso 
+
+A la derecha del PID veremos el nombre del Dueño
+
 <img width="858" height="943" alt="image" src="https://github.com/user-attachments/assets/eb338901-aaa3-4bba-807a-41106731fe72" />
+
+
+# Tenemos 2 tipos de servicio: permanentes y a demanda
 <img width="619" height="508" alt="image" src="https://github.com/user-attachments/assets/7c4d506d-5cb9-4d4b-82c2-47c9a56bb8e1" />
 
 
-# vamos a cerrar el puerto 21 el dueño es xinetd: ls /etc/xinetd.d >> para averiguar que archivo lo ejecuta
+# Los servicios gestionados por xinetd tienen archivos de configuración individuales en la carpeta /etc/xinetd.d/
+
+Vamos a cerrar el puerto 21 vsftpd
+
 <img width="390" height="61" alt="image" src="https://github.com/user-attachments/assets/a9c04641-7f55-4b65-8455-e53a8b30cc5d" />
 
-# editamos el archivo >> disable = yes
+# Editamos el archivo >> disable = yes
 <img width="596" height="304" alt="image" src="https://github.com/user-attachments/assets/e1b8232f-1d6b-4fb6-a97a-aca490e149c8" />
 
-# Reiniciamos 
+# Reiniciamos con sudo /etc/init.d/xinetd reload
 <img width="490" height="48" alt="image" src="https://github.com/user-attachments/assets/6c442e2a-7638-4e82-b4c4-fc40db0eb84a" />
 
-# vamos a cerrar el puerto 23, editamos el archivo en /etc/inetd.conf
+# Los servicios administrados por inetd comparten un único archivo /etc/inetd.conf
+
+vamos a cerrar el puerto 23, editamos el archivo en /etc/inetd.conf
+
 <img width="421" height="23" alt="image" src="https://github.com/user-attachments/assets/2c15bdb6-cfc3-4a92-8382-547851cc4717" />
 
-# agregamos # delante de telnet
+# Agregamos # delante de telnet que es el servicio que vamos a cerrar
 <img width="754" height="159" alt="image" src="https://github.com/user-attachments/assets/25612027-d363-48c5-9839-19524ea9e082" />
 
-# reiniciamos y comprobamos que se cerro
+# Reiniciamos con sudo /etc/init.d/xinetd reload
+
+Comprobamos que se cerro correctamente filtrando con grep y el numero de puerto: sudo netstat -tulpn | grep:23
+
 <img width="572" height="92" alt="image" src="https://github.com/user-attachments/assets/e18dc895-b808-4211-bcb0-e44a7d2f206a" />
 
-# vamos a cerrar el puerto 513, podemos filtrar con grep para buscar el dueño
+# Vamos a cerrar el puerto 513 login, podemos filtrar con grep para buscar el dueño
 <img width="771" height="50" alt="image" src="https://github.com/user-attachments/assets/077e4b54-7c13-443b-8ff4-98be2b9fb46b" />
 
-# ponemos # delante de login
+# Ponemos # delante de login
 <img width="769" height="179" alt="image" src="https://github.com/user-attachments/assets/50875fd8-7be8-4099-97dd-06cc7bf78b9a" />
 
-# vamos a cerrar el puerto 2121, buscamos quien es el dueño
+# Ahora cerramos un servicio independiente, no se encuentran ni en inetd ni en xinetd
+
+Vamos a cerrar el puerto 2121, buscamos quien es el dueño
+
 <img width="831" height="37" alt="image" src="https://github.com/user-attachments/assets/91a25044-dc6e-455c-92c8-151f2dfd5088" />
 
-# paramos 
+# Para detener el servicio: sudo /etc/init.d/proftpd stop
 <img width="722" height="52" alt="image" src="https://github.com/user-attachments/assets/b358aaea-bada-4fae-bee6-ec0530814255" />
 
-# borramos y comprobamos que no aparece
+# Para deshabilitar: sudo update-rc.d -f proftpd remove
 <img width="587" height="162" alt="image" src="https://github.com/user-attachments/assets/d6126d4d-157e-46af-ab4c-0ed8bc0dc6a2" />
 
-# vamos a cerrar el puerto 3306 buscamos el dueño
+# Vamos a detener el puerto 3306 buscamos el dueño
 <img width="717" height="97" alt="image" src="https://github.com/user-attachments/assets/a36a4df9-4c0d-4cba-b07d-931e280ad0bc" />
 
-# paramos
+# Repetimos el proceso anterior: sudo update-rc.d -f mysql remove
 <img width="714" height="67" alt="image" src="https://github.com/user-attachments/assets/c5e283ce-4836-4493-9bd3-d2df29badc52" />
 <img width="603" height="169" alt="image" src="https://github.com/user-attachments/assets/5677215c-4bc7-454c-b881-e4b962041c78" />
 
-# vamos a cerrar 8009
-<img width="701" height="51" alt="image" src="https://github.com/user-attachments/assets/da7109a8-8bf2-4c97-8de1-9d7c13f837d4" />
 
 
 
