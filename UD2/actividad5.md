@@ -52,7 +52,7 @@ Pop-Ups / Ventanas emergentes: Ventanas publicitarias que aparecen de forma repe
 
 Worms / Gusanos: Malware con capacidad de autorreplicarse y propagarse de forma autónoma a través de las redes.
 
-
+Bomba lógica: fragmento de código malicioso oculto dentro de un programa que permanece hasta que se cumple una condición o fecha específica
 
 
 Parte B Clasificar las amenazas
