@@ -35,6 +35,10 @@ A la derecha del PID veremos el nombre del Dueño
 # Tenemos 2 tipos de servicio: permanentes (proceso propio) y a demanda (inetd/xinetd)
 <img width="619" height="508" alt="image" src="https://github.com/user-attachments/assets/7c4d506d-5cb9-4d4b-82c2-47c9a56bb8e1" />
 
+# Resumen
+<img width="858" height="205" alt="image" src="https://github.com/user-attachments/assets/e9374216-952a-4c68-9f76-1fe8d223a971" />
+
+
 
 # Los servicios gestionados por xinetd tienen archivos de configuración individuales en la carpeta /etc/xinetd.d/
 
