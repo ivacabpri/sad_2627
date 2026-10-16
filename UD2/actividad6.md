@@ -33,18 +33,22 @@ B1. Mirad de qué repositorios se descarga vuestro sistema:
 
 cat /etc/apt/sources.list
 ls /etc/apt/sources.list.d/
+
 <img width="648" height="275" alt="image" src="https://github.com/user-attachments/assets/3f8e7709-0838-48ba-b19c-cbe8dc97e8d5" />
 
 Investiga el fichero donde están configurados los repositorios y comenta el significado de cada una de las líneas y su contenido.
-<img width="110" height="29" alt="image" src="https://github.com/user-attachments/assets/1e674d16-45ac-472e-8126-17753201bd1c" />
+
+---
 
 Types: Define el tipo de paquete al que se está accediendo.
 
 deb:Indica un repositorio binario que contiene paquetes listos para instalar
-<img width="428" height="26" alt="image" src="https://github.com/user-attachments/assets/84aff67f-3362-46e0-81f7-e8c1bad324f5" />
+
+---
 
 URL: Dirección URL.
-<img width="438" height="29" alt="image" src="https://github.com/user-attachments/assets/7f45e36c-e5f6-40a5-a69f-5fd943551999" />
+
+---
 
 Suites: Define la versión del sistema operativo de la que se obtendrán los paquetes.
 
@@ -56,7 +60,7 @@ noble-backports: Contiene versiones más nuevas.
 
 noble-security: Contiene parches y actualizaciones urgentes de seguridad.
 
-<img width="479" height="25" alt="image" src="https://github.com/user-attachments/assets/73ea9973-0f94-4871-b6af-d2e7fda9834c" />
+---
 
 Components: Define el nivel de soporte y tipo de licencia del software dentro de esa versión.
 
@@ -67,12 +71,14 @@ restricted: Controladores o software propietario esenciales para el funcionamien
 universe: Software libre mantenido por la comunidad, no garantizado directamente por Canonical.
 
 multiverse: Software no libre o restringido por cuestiones legales/patentes.
-<img width="598" height="27" alt="image" src="https://github.com/user-attachments/assets/e3599ed1-fb94-4ca9-90c6-35dba888fe22" />
+
+---
 
 Signed-By: Ruta del archivo que contiene la clave criptográfica (GPG) utilizada para verificar la autenticidad e integridad del repositorio.
 
 /usr/share/keyrings/ubuntu-archive-keyring.gpg: Es la clave pública con la que APT valida que los paquetes han sido firmados oficialmente por Canonical
 
+---
 
 B2. apt solo instala paquetes firmados por claves en las que confía. Mirad dónde están esas claves:
 
