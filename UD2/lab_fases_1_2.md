@@ -50,6 +50,9 @@ Vamos a cerrar el puerto 21 vsftpd
 <img width="596" height="304" alt="image" src="https://github.com/user-attachments/assets/e1b8232f-1d6b-4fb6-a97a-aca490e149c8" />
 
 # Reiniciamos con sudo /etc/init.d/xinetd reload
+
+Importante no detener xinetd ya que este gestiona múltiples servicios a la vez, con reload liberas el puerto sin interrumpir lso demas.
+
 <img width="490" height="48" alt="image" src="https://github.com/user-attachments/assets/6c442e2a-7638-4e82-b4c4-fc40db0eb84a" />
 
 # Los servicios administrados por inetd comparten un único archivo /etc/inetd.conf
@@ -59,6 +62,9 @@ vamos a cerrar el puerto 23, editamos el archivo en /etc/inetd.conf
 <img width="421" height="23" alt="image" src="https://github.com/user-attachments/assets/2c15bdb6-cfc3-4a92-8382-547851cc4717" />
 
 # Agregamos # delante de telnet que es el servicio que vamos a cerrar
+
+Al recargar el servicio, se ignoraran las líneas comentadas con # y se dejara de escuchar el servicio.
+
 <img width="754" height="159" alt="image" src="https://github.com/user-attachments/assets/25612027-d363-48c5-9839-19524ea9e082" />
 
 # Reiniciamos con sudo /etc/init.d/xinetd reload
@@ -73,16 +79,22 @@ Comprobamos que se cerro correctamente filtrando con grep y el numero de puerto:
 # Ponemos # delante de login
 <img width="769" height="179" alt="image" src="https://github.com/user-attachments/assets/50875fd8-7be8-4099-97dd-06cc7bf78b9a" />
 
-# Ahora cerramos un servicio independiente, no se encuentran ni en inetd ni en xinetd
+# Ahora cerramos un servicio permanente, el programa base se encontrara en /etc/init.d/, las carpetas de arranque (runleves) 7 en total se encontraran en /etc/rc0.d/ hasta /etc/rc6.d/ siendo /etc/rc2.d/ la más común.
 
 Vamos a cerrar el puerto 2121, buscamos quien es el dueño
 
 <img width="831" height="37" alt="image" src="https://github.com/user-attachments/assets/91a25044-dc6e-455c-92c8-151f2dfd5088" />
 
 # Para detener el servicio: sudo /etc/init.d/proftpd stop
+
+Con stop detendremos el proceso activo en memoria para liberar el puerto inmediatamente.
+
 <img width="722" height="52" alt="image" src="https://github.com/user-attachments/assets/b358aaea-bada-4fae-bee6-ec0530814255" />
 
 # Para deshabilitar: sudo update-rc.d -f proftpd remove
+
+Eliminamos el acceso directo que inicia el programa al encender el equipo.
+
 <img width="587" height="162" alt="image" src="https://github.com/user-attachments/assets/d6126d4d-157e-46af-ab4c-0ed8bc0dc6a2" />
 
 # Vamos a detener el puerto 3306 buscamos el dueño
