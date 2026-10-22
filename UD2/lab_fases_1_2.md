@@ -110,14 +110,15 @@ Eliminamos el acceso directo que inicia el programa al encender el equipo.
 # Vamos a detener el puerto 3306 buscamos el dueño
 <img width="717" height="97" alt="image" src="https://github.com/user-attachments/assets/a36a4df9-4c0d-4cba-b07d-931e280ad0bc" />
 
-# Repetimos el proceso anterior: sudo update-rc.d -f mysql remove
-<img width="714" height="67" alt="image" src="https://github.com/user-attachments/assets/c5e283ce-4836-4493-9bd3-d2df29badc52" />
 
 # Buscamos el rc
 <img width="446" height="85" alt="image" src="https://github.com/user-attachments/assets/5752c251-7ba5-4e35-a42e-4ffda9e59b4e" />
 
 
 <img width="603" height="169" alt="image" src="https://github.com/user-attachments/assets/5677215c-4bc7-454c-b881-e4b962041c78" />
+
+# Repetimos el proceso anterior: sudo update-rc.d -f mysql remove
+<img width="714" height="67" alt="image" src="https://github.com/user-attachments/assets/c5e283ce-4836-4493-9bd3-d2df29badc52" />
 
 
 
