@@ -32,7 +32,7 @@ A la derecha del PID veremos el nombre del Dueño
 <img width="858" height="943" alt="image" src="https://github.com/user-attachments/assets/eb338901-aaa3-4bba-807a-41106731fe72" />
 
 
-# Tenemos 2 tipos de servicio: permanentes (proceso propio) y a demanda (inetd/xinetd)
+# Tenemos 2 tipos de servicio: permanentes (proceso propio o a demanda) y a demanda (inetd/xinetd)
 <img width="619" height="508" alt="image" src="https://github.com/user-attachments/assets/7c4d506d-5cb9-4d4b-82c2-47c9a56bb8e1" />
 
 # Resumen
