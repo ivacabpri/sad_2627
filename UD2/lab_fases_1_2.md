@@ -76,6 +76,12 @@ Comprobamos que se cerro correctamente filtrando con grep y el numero de puerto:
 # Vamos a cerrar el puerto 513 login, podemos filtrar con grep para buscar el dueño
 <img width="771" height="50" alt="image" src="https://github.com/user-attachments/assets/077e4b54-7c13-443b-8ff4-98be2b9fb46b" />
 
+# Buscamos el nombre del puerto con /etc/services
+
+El nombre es login, aparece en la primera columna de la izquierda
+
+<img width="438" height="55" alt="image" src="https://github.com/user-attachments/assets/5f5623f5-616d-4c25-8a7a-d4ab38e2ac5e" />
+
 # Ponemos # delante de login
 <img width="769" height="179" alt="image" src="https://github.com/user-attachments/assets/50875fd8-7be8-4099-97dd-06cc7bf78b9a" />
 
