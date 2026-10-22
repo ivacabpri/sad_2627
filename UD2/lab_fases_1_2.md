@@ -76,6 +76,10 @@ Comprobamos que se cerro correctamente filtrando con grep y el numero de puerto:
 # Vamos a cerrar el puerto 513 login, podemos filtrar con grep para buscar el dueño
 <img width="771" height="50" alt="image" src="https://github.com/user-attachments/assets/077e4b54-7c13-443b-8ff4-98be2b9fb46b" />
 
+# Buscamos el puerto 513
+No nos devolverá ningún resultado porque el nombre del protocolo será otro
+<img width="881" height="46" alt="image" src="https://github.com/user-attachments/assets/049058ba-98f1-470a-baa1-fad6e9cc28a3" />
+
 # Buscamos el nombre del puerto con /etc/services
 
 El nombre es login, aparece en la primera columna de la izquierda
@@ -108,6 +112,11 @@ Eliminamos el acceso directo que inicia el programa al encender el equipo.
 
 # Repetimos el proceso anterior: sudo update-rc.d -f mysql remove
 <img width="714" height="67" alt="image" src="https://github.com/user-attachments/assets/c5e283ce-4836-4493-9bd3-d2df29badc52" />
+
+# Buscamos el rc
+<img width="446" height="85" alt="image" src="https://github.com/user-attachments/assets/5752c251-7ba5-4e35-a42e-4ffda9e59b4e" />
+
+
 <img width="603" height="169" alt="image" src="https://github.com/user-attachments/assets/5677215c-4bc7-454c-b881-e4b962041c78" />
 
 
