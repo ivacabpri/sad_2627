@@ -35,10 +35,13 @@ sudo chmod 700 planos/
 sudo chmod 600 planos/*
 
 # 4. Aplicando ACLs
+
 # Grupo operarios: ejecutar
 sudo setfacl -m g:operarios:--x hmi_planta
+
 # Nestor: leer y ejecutar
 sudo setfacl -m u:nestor:r-x hmi_planta
+
 # Lucia: todo (leer, escribir, ejecutar)
 sudo setfacl -m u:lucia:rwx hmi_planta
 
