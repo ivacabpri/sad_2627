@@ -70,7 +70,12 @@ sudo setfacl -d -m g:supervisores:r-x planos/
 
 # 5. Comprobar permisos aplicados
 getfacl hmi_planta
+
+<img width="403" height="252" alt="image" src="https://github.com/user-attachments/assets/44a1c8ee-1875-4433-afab-7bf66ac1bcb2" />
+
 getfacl -R planos/
+
+<img width="712" height="550" alt="image" src="https://github.com/user-attachments/assets/2c55328b-58dc-4336-9939-eb066339c1c1" />
 
 ---
 
