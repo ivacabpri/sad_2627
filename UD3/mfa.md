@@ -38,3 +38,18 @@ Se definen políticas de expiración diferenciadas según el nivel de privilegio
 | `-W` | Días de aviso antes de que caduque |
 | `-l` | Lista la política actual aplicada a un usuario |
 
+# Aplicar expiración a 60 días (aviso a los 7 días, mínimo 1 día para cambiarla) a ingeniería y supervisores
+
+for u in nestor victor lucia carlos mary john; do
+  sudo chage -m 1 -M 60 -W 7 $u
+done
+
+# Aplicar expiración a 90 días a operarios
+
+for u in alberto oscar hugo; do
+  sudo chage -m 1 -M 90 -W 7 $u
+done
+
+# Verificar la política aplicada sobre un usuario
+sudo chage -l nestor
+
