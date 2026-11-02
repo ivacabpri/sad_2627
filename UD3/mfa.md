@@ -44,12 +44,29 @@ for u in nestor victor lucia carlos mary john; do
   sudo chage -m 1 -M 60 -W 7 $u
 done
 
+<img width="729" height="64" alt="image" src="https://github.com/user-attachments/assets/6662f0f7-ace4-4fdb-9dda-d872f8daf6e0" />
+
+
 # Aplicar expiración a 90 días a operarios
 
 for u in alberto oscar hugo; do
   sudo chage -m 1 -M 90 -W 7 $u
 done
 
+<img width="529" height="66" alt="image" src="https://github.com/user-attachments/assets/9e3e654e-f1e8-4a2f-8d54-f902d4f1238d" />
+
+
 # Verificar la política aplicada sobre un usuario
 sudo chage -l nestor
+
+<img width="733" height="207" alt="image" src="https://github.com/user-attachments/assets/bbe4aa4c-c57b-4efe-a0d7-becea155ad50" />
+
+### 2 Instalar el módulo PAM de Google Authenticator conectar con ssh
+Para añadir soporte de autenticación TOTP en el sistema, instalamos el paquete `libpam-google-authenticator`.
+
+<img width="855" height="732" alt="image" src="https://github.com/user-attachments/assets/b1485043-5f2d-4c89-8223-f68939771663" />
+
+
+<img width="609" height="138" alt="image" src="https://github.com/user-attachments/assets/4935ab83-43d8-4d25-bdb1-85d63c057b6f" />
+<img width="757" height="107" alt="image" src="https://github.com/user-attachments/assets/74f916cd-be14-4158-8511-180511519be3" />
 
