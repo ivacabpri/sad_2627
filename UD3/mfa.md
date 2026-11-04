@@ -66,7 +66,29 @@ Para añadir soporte de autenticación TOTP en el sistema, instalamos el paquete
 
 <img width="855" height="732" alt="image" src="https://github.com/user-attachments/assets/b1485043-5f2d-4c89-8223-f68939771663" />
 
+# Habilitamos la autenticación
 
 <img width="609" height="138" alt="image" src="https://github.com/user-attachments/assets/4935ab83-43d8-4d25-bdb1-85d63c057b6f" />
+
 <img width="757" height="107" alt="image" src="https://github.com/user-attachments/assets/74f916cd-be14-4158-8511-180511519be3" />
+
+### 3 Configuración de reglas mediante visudo
+
+# Creamos un script y le damos permisos de ejecución
+
+<img width="613" height="110" alt="image" src="https://github.com/user-attachments/assets/53f183ea-2f0a-4ba2-99d9-f571434c3d21" />
+
+# Creamos un fichero de reglas apuntando a un fichero nuevo en sudoers.d
+
+<img width="744" height="114" alt="image" src="https://github.com/user-attachments/assets/020dc90e-5b31-4881-b29c-70eeee088e57" />
+
+
+# Comprobamos que puede hacer cada usuario 
+
+<img width="707" height="201" alt="image" src="https://github.com/user-attachments/assets/11564b48-450c-476c-9a0f-38883323f64f" />
+
+# Conectado como alberto, intenta ejecutar algo con sudo y confirmamos que no tiene permisos
+
+<img width="425" height="62" alt="image" src="https://github.com/user-attachments/assets/7bc1de20-2e32-48c1-8ab6-153edb93afaa" />
+
 
