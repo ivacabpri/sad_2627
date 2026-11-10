@@ -7,7 +7,7 @@
 | **srv.crt** | Certificado del servidor, firmado por la CA | Se publica: lo envía el servidor a cada cliente |
 ---
 
-# Paso 0: Instalar paquetes y verificar Apache
+# Paso 0: Instalar paquetes y verificar Apache.
 
 sudo apt update
 sudo apt install -y apache2 openssl curl cron
@@ -21,7 +21,7 @@ sudo ss -tlnp | grep ':80'
 El navegador muestra la advertencia "No es seguro". Toda la información y los datos enviados entre el navegador y la máquina virtual viajan en texto plano.
 
 
-# Paso 1: Crear estructura de carpetas
+# Paso 1: Crear estructura de carpetas.
 
 mkdir -p ~/ca/private ~/ca/certs
 chmod 700 ~/ca/private
@@ -30,7 +30,7 @@ ls -ld private
 
 <img width="460" height="98" alt="image" src="https://github.com/user-attachments/assets/b4f021e5-e302-45a8-8c87-2090b32cabee" />
 
-# Paso 2: Generar clave privada de la CA (elige una contraseña "1234")
+# Paso 2: Generar clave privada de la CA (elige una contraseña "1234").
 
 genrsa crea una clave privada RSA, la opción -aes256 cifra el fichero
 
@@ -61,7 +61,7 @@ openssl req -x509 -new -key private/ca.key -sha256 -days 3650 \
 | `keyUsage keyCertSign` | Limita para qué puede usarse la clave: firmar certificados. |
 
 
-# Paso 4: Inspeccionar el certificado raíz creado
+# Paso 4: Inspeccionar el certificado raíz creado.
 
 openssl x509 -in certs/ca.crt -noout -subject -issuer -dates
 
@@ -79,7 +79,7 @@ Coinciden porque se trata de un certificado autofirmado. No existe ninguna entid
 
 Es válida hasta el Nov 3 18:08:32 2036 GMT
 
-# Paso 5: Generar clave privada del servidor y la CSR
+# Paso 5: Generar clave privada del servidor y la CSR.
 
 (srv.key): Se genera una clave RSA de 2048 bits. A diferencia de la clave de la CA (ca.key), esta clave va sin contraseña.
 
@@ -92,7 +92,7 @@ openssl req -new -key private/srv.key -out srv.csr \
 <img width="549" height="60" alt="image" src="https://github.com/user-attachments/assets/33def5d4-6d4d-4650-b7a6-eccaf50fa294" />
 
 
-# Paso 6: Crear el fichero srv.ext especificando la IP (192.168.56.102)
+# Paso 6: Crear el fichero srv.ext especificando la IP (192.168.56.102).
 
 cat <<EOF > srv.ext
 subjectAltName = DNS:hmi.torrent.local, IP:192.168.56.102
@@ -108,7 +108,7 @@ basicConstraints = CA:FALSE: Especifica que este certificado pertenece a un serv
 keyUsage / extendedKeyUsage: Restringen el uso de la clave exclusivamente para autenticar a un servidor web (serverAuth).
 
 
-# Paso 7: La CA firma el certificado del servidor (Introduce la contraseña de la CA)
+# Paso 7: La CA firma el certificado del servidor (Introduce la contraseña de la CA).
 
 openssl x509 -req -in srv.csr \
 -CA certs/ca.crt -CAkey private/ca.key -CAcreateserial \
@@ -120,12 +120,76 @@ openssl x509 -req -in srv.csr \
 
 Para reducir el impacto y la ventana de exposición si la clave del servidor web se compromete.
 
-# Paso 8: Verificar la cadena de confianza
+# Paso 8: Verificar la cadena de confianza.
 
 openssl verify -CAfile certs/ca.crt certs/srv.crt
+
+<img width="626" height="43" alt="image" src="https://github.com/user-attachments/assets/8baeb1f9-917c-4c5f-aa91-1102597426d2" />
+
 openssl x509 -in certs/srv.crt -noout -subject -issuer -ext subjectAltName
 
-FALTA IMAGEN
+<img width="820" height="95" alt="image" src="https://github.com/user-attachments/assets/7644a71b-687a-4e83-a2f3-83170e6f6854" />
+
+# Copiamos el certificado y la clave a los directorios estándar del sistema y activamos el módulo SSL de Apache.
+
+<img width="758" height="125" alt="image" src="https://github.com/user-attachments/assets/c7ccdd85-051b-4d28-a445-f8ec4626e881" />
+
+
+# Editamos default-ssl.conf para cambiar nuestro certificado.
+
+<img width="527" height="61" alt="image" src="https://github.com/user-attachments/assets/be4fe439-b1e0-486d-a66b-2bdd8ea9d8eb" />
+
+# Activamos ssl, comprobamos la configuración y reiniciamos el servicio.
+
+<img width="877" height="133" alt="image" src="https://github.com/user-attachments/assets/97f4e38e-e764-43cd-aaa6-8b630eccb1fb" />
+
+# Probamos https.
+
+<img width="768" height="35" alt="image" src="https://github.com/user-attachments/assets/da315899-0ed9-4e67-a2b6-e1572d789412" />
+
+SSL certificate problem: unable to get local issuer certificate». curl no conoce a quien
+firmó el certificado y por eso se niega a continuar.
+
+Ahora le decimos a curl que confíe en nuestra CA, solo para esta orden:
+
+<img width="677" height="189" alt="image" src="https://github.com/user-attachments/assets/587e2308-25ed-4fb8-af52-91fe1c4b06ec" />
+
+# Para que el navegador confíe, hay que darle ca.crt. Lo publicamos en el propio Apache y calculamos su huella
+digital (SHA-256).
+
+<img width="844" height="845" alt="image" src="https://github.com/user-attachments/assets/0b9003d5-54a7-4ef2-8f88-3e92922f162f" />
+
+# Descargamos e importamos el certificado.
+
+<img width="885" height="79" alt="image" src="https://github.com/user-attachments/assets/c922cda0-5d1b-47de-a074-b95c74e6364b" />
+
+<img width="672" height="110" alt="image" src="https://github.com/user-attachments/assets/26441aa7-e7b6-4e7d-a37a-f138fdab8dc4" />
+
+# Comprobaremos la conexión cifrada TLS desde la terminal usando openssl s_client. 
+
+Así analizaremos qué certificados envía Apache, quién los ha firmado y qué algoritmo de cifrado se ha negociado.
+
+<img width="879" height="119" alt="image" src="https://github.com/user-attachments/assets/3ad9f519-6930-4690-96cb-b53ba92bab95" />
+
+Emisor (i:): Torrent S.L. CA Raiz (tu propia entidad certificadora).
+
+Sujeto (s:): hmi.torrent.local.
+
+Cifrado: TLS_AES_256_GCM_SHA384 mediante TLSv1.3.
+
+Verificación: Verify return code: 0 (ok).
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
