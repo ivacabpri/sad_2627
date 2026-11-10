@@ -130,7 +130,7 @@ openssl x509 -in certs/srv.crt -noout -subject -issuer -ext subjectAltName
 
 <img width="820" height="95" alt="image" src="https://github.com/user-attachments/assets/7644a71b-687a-4e83-a2f3-83170e6f6854" />
 
-# Copiamos el certificado y la clave a los directorios estándar del sistema y activamos el módulo SSL de Apache.
+# Paso 9: Copiamos el certificado y la clave a los directorios estándar del sistema y activamos el módulo SSL de Apache.
 
 <img width="758" height="125" alt="image" src="https://github.com/user-attachments/assets/c7ccdd85-051b-4d28-a445-f8ec4626e881" />
 
@@ -143,7 +143,7 @@ openssl x509 -in certs/srv.crt -noout -subject -issuer -ext subjectAltName
 
 <img width="877" height="133" alt="image" src="https://github.com/user-attachments/assets/97f4e38e-e764-43cd-aaa6-8b630eccb1fb" />
 
-# Probamos https.
+# Paso 10: Probamos https.
 
 <img width="768" height="35" alt="image" src="https://github.com/user-attachments/assets/da315899-0ed9-4e67-a2b6-e1572d789412" />
 
@@ -154,7 +154,7 @@ Ahora le decimos a curl que confíe en nuestra CA, solo para esta orden:
 
 <img width="677" height="189" alt="image" src="https://github.com/user-attachments/assets/587e2308-25ed-4fb8-af52-91fe1c4b06ec" />
 
-# Para que el navegador confíe, hay que darle ca.crt. Lo publicamos en el propio Apache y calculamos su huella
+# Paso 11: Para que el navegador confíe, hay que darle ca.crt. Lo publicamos en el propio Apache y calculamos su huella
 digital (SHA-256).
 
 <img width="844" height="845" alt="image" src="https://github.com/user-attachments/assets/0b9003d5-54a7-4ef2-8f88-3e92922f162f" />
@@ -165,7 +165,7 @@ digital (SHA-256).
 
 <img width="672" height="110" alt="image" src="https://github.com/user-attachments/assets/26441aa7-e7b6-4e7d-a37a-f138fdab8dc4" />
 
-# Comprobaremos la conexión cifrada TLS desde la terminal usando openssl s_client. 
+# Paso 12: Comprobaremos la conexión cifrada TLS desde la terminal usando openssl s_client. 
 
 Así analizaremos qué certificados envía Apache, quién los ha firmado y qué algoritmo de cifrado se ha negociado.
 
@@ -179,8 +179,42 @@ Cifrado: TLS_AES_256_GCM_SHA384 mediante TLSv1.3.
 
 Verificación: Verify return code: 0 (ok).
 
+---
 
+# Preguntas de la Parte 1
 
+Explica con tus palabras la diferencia entre ca.key, ca.crt, srv.key y srv.crt: ¿cuáles son secretos y cuáles
+públicos?
+
+ca.key: Es la clave privada de la Entidad Certificadora (CA) raíz.
+
+ca.crt: Es el certificado público autofirmado de la CA raíz. Se distribuye e instala en los navegadores o sistemas operativos de los clientes para que sospechen o confíen en las firmas emitidas por la CA.   
+
+srv.key: Es la clave privada exclusiva del servidor web Apache. Sirve para descifrar el tráfico entrante HTTPS y demostrar la identidad del servidor durante la negociación TLS.
+
+srv.crt: Es el certificado del servidor web emitido y firmado por la CA. Contiene la clave pública del servidor, sus datos de identidad y la firma digital que demuestra su autenticidad.
+
+Alguien roba ca.key (sin contraseña). ¿Qué puede hacer con ella? ¿Qué tendría que hacer Torrent S.L. para
+recuperar la confianza?
+
+Al poseer la clave privada de la CA sin cifrar, el atacante tiene control total sobre la autoridad de certificación. Puede emitir certificados falsos para cualquier dominio y realizar ataques indetectables para los usuarios que confíen en esa CA.
+
+Torrent S.L deberá revocar la clave antigua y volver a crear una nueva.
+
+¿Por qué descargar ca.crt por HTTP y no verificar la huella es un riesgo? ¿Quién podría aprovecharlo?
+
+HTTP transmite los datos en texto plano. Si un atacante intercepta la descarga, puede sustituir el archivo ca.crt legítimo por el certificado de su propia CA maliciosa.   
+
+Un atacante situado en la misma red local.
+
+Si el usuario no comprueba la huella SHA-256 por un canal seguro alternativo, terminará instalando y confiando en la CA del atacante, quedando totalmente expuesto a que el atacante intercepte todo su tráfico HTTPS sin que el navegador muestre advertencias.
+   
+¿Es una buena idea que la CA y el servidor web estén en la misma máquina? ¿Qué problema de seguridad
+crea?
+
+No. Si el servidor web Apache sufre una vulnerabilidad, el atacante podría ganar acceso a la máquina. Al estar la CA en el mismo sistema, el atacante obtendría acceso directo al archivo.
+
+---
 
 
 
