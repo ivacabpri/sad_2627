@@ -83,7 +83,7 @@ Canonical/Debian.
 
 ---
 
-# 5. Una empresa de 3 personas, ¿montaría una CA propia? ¿Cuándo sí tiene sentido? Relaciónalo con lo que haremos en la Fase 2 (VPN).
+## 5. Una empresa de 3 personas, ¿montaría una CA propia? ¿Cuándo sí tiene sentido? Relaciónalo con lo que haremos en la Fase 2 (VPN).
   No para un servidor web convencional, debido al coste operativo y a la complejidad de mantenimiento de la infraestructura de clave pública.
   Tiene sentido cuando se necesitan autenticar dispositivos, servicios internos o usuarios en redes privadas de forma segura.
   En la Fase 2, para desplegar una VPN, sí es imprescindible contar con una CA propia. La CA permite emitir certificados digitales individuales a cada uno de los 3 empleados/clientes.
