@@ -183,7 +183,7 @@ Verificación: Verify return code: 0 (ok).
 
 # Preguntas de la Parte 1
 
-Explica con tus palabras la diferencia entre ca.key, ca.crt, srv.key y srv.crt: ¿cuáles son secretos y cuáles
+## Explica con tus palabras la diferencia entre ca.key, ca.crt, srv.key y srv.crt: ¿cuáles son secretos y cuáles
 públicos?
 
 ca.key: Es la clave privada de la Entidad Certificadora (CA) raíz.
@@ -194,14 +194,14 @@ srv.key: Es la clave privada exclusiva del servidor web Apache. Sirve para desci
 
 srv.crt: Es el certificado del servidor web emitido y firmado por la CA. Contiene la clave pública del servidor, sus datos de identidad y la firma digital que demuestra su autenticidad.
 
-Alguien roba ca.key (sin contraseña). ¿Qué puede hacer con ella? ¿Qué tendría que hacer Torrent S.L. para
+## Alguien roba ca.key (sin contraseña). ¿Qué puede hacer con ella? ¿Qué tendría que hacer Torrent S.L. para
 recuperar la confianza?
 
 Al poseer la clave privada de la CA sin cifrar, el atacante tiene control total sobre la autoridad de certificación. Puede emitir certificados falsos para cualquier dominio y realizar ataques indetectables para los usuarios que confíen en esa CA.
 
 Torrent S.L deberá revocar la clave antigua y volver a crear una nueva.
 
-¿Por qué descargar ca.crt por HTTP y no verificar la huella es un riesgo? ¿Quién podría aprovecharlo?
+## ¿Por qué descargar ca.crt por HTTP y no verificar la huella es un riesgo? ¿Quién podría aprovecharlo?
 
 HTTP transmite los datos en texto plano. Si un atacante intercepta la descarga, puede sustituir el archivo ca.crt legítimo por el certificado de su propia CA maliciosa.   
 
@@ -209,7 +209,7 @@ Un atacante situado en la misma red local.
 
 Si el usuario no comprueba la huella SHA-256 por un canal seguro alternativo, terminará instalando y confiando en la CA del atacante, quedando totalmente expuesto a que el atacante intercepte todo su tráfico HTTPS sin que el navegador muestre advertencias.
    
-¿Es una buena idea que la CA y el servidor web estén en la misma máquina? ¿Qué problema de seguridad
+## ¿Es una buena idea que la CA y el servidor web estén en la misma máquina? ¿Qué problema de seguridad
 crea?
 
 No. Si el servidor web Apache sufre una vulnerabilidad, el atacante podría ganar acceso a la máquina. Al estar la CA en el mismo sistema, el atacante obtendría acceso directo al archivo.
