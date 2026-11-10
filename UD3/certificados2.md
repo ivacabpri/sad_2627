@@ -60,24 +60,24 @@ Canonical/Debian.
 ---
 ## 3. Preguntas finales
 
-### 1. ¿Por qué el navegador confía en Let’s Encrypt y no en la CA de Torrent S.L.? ¿Quién decide en qué entidades confía un navegador?
- El navegador confía en **Let's Encrypt** porque su certificado raíz (`ISRG Root X1`) viene preinstalado del sistema operativo y del propio navegador. Por el contrario, la **CA de Torrent S.L.** es una entidad privada e interna cuyo certificado raíz no ha sido auditado, por lo que el navegador la rechaza como desconocida hasta que el usuario la importa manualmente.
+# 1. ¿Por qué el navegador confía en Let’s Encrypt y no en la CA de Torrent S.L.? ¿Quién decide en qué entidades confía un navegador?
+ El navegador confía en **Let's Encrypt** porque su certificado raíz viene preinstalado del sistema operativo y del propio navegador. Por el contrario, la **CA de Torrent S.L.** es una entidad privada e interna cuyo certificado raíz no ha sido auditado, por lo que el navegador la rechaza como desconocida hasta que el usuario la importa manualmente.
  Lo deciden los desarrolladores de los navegadores y los mantenedores de los sistemas operativos, basándose en estrictos estándares de auditoría internacional.
 
 ---
 
-### 2. ¿Por qué los certificados de Let’s Encrypt duran solo 90 días? Piensa en qué pasa si alguien roba la clave privada del servidor.
+# 2. ¿Por qué los certificados de Let’s Encrypt duran solo 90 días? Piensa en qué pasa si alguien roba la clave privada del servidor.
   Si un atacante compromete o roba la clave privada del servidor, solo podrá suplantar la identidad del sitio durante un máximo de 90 días, limitando gravemente el impacto.
 
 ---
 
-### 3. La página interna de la planta de Torrent S.L. no tiene salida a Internet. ¿Qué CA usarías, la propia o Let’s Encrypt? ¿Y para la web pública de un cliente?
-  Usaría la **CA propia. Al ser una red aislada u offline, los servidores de Let's Encrypt no pueden validar los desafíos ACME.
+# 3. La página interna de la planta de Torrent S.L. no tiene salida a Internet. ¿Qué CA usarías, la propia o Let’s Encrypt? ¿Y para la web pública de un cliente?
+  Usaría la CA propia. Al ser una red aislada u offline, los servidores de Let's Encrypt no pueden validar los desafíos ACME.
   Usaría **Let's Encrypt** . Garantiza confianza inmediata en cualquier dispositivo del mundo sin mostrar advertencias de seguridad al público general.
 
 ---
 
-### 4. HTTPS protege la confidencialidad y la integridad de lo que viaja. Pon dos ejemplos de ataques que HTTPS no impide.
+# 4. HTTPS protege la confidencialidad y la integridad de lo que viaja. Pon dos ejemplos de ataques que HTTPS no impide.
 **Ataques a nivel de aplicación / Software** HTTPS cifra la comunicación en tránsito, pero si la aplicación web tiene fallos de código, un atacante puede explotar la base de datos o infectar el servidor a través de la conexión cifrada.
 **Ingeniería social y Phishing** HTTPS no garantiza la veracidad del contenido ni la intención del sitio. Un atacante puede montar una web maliciosa con un certificado HTTPS válido para engañar al usuario y hacer que introduzca sus contraseñas.
 
