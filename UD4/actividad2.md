@@ -66,7 +66,9 @@ ip -br a
 ping -c 2 10.0.20.20
 ```
 
-[PEGAR AQUÍ CAPTURA DE ENTREGA 0: `ip -br a` y `ping` fallando en el cliente]
+<img width="643" height="181" alt="image" src="https://github.com/user-attachments/assets/c7cc1f14-eef9-45f7-abbb-19a400c0903a" />
+
+
 
 ---
 
